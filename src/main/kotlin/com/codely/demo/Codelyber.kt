@@ -1,9 +1,12 @@
 package com.codely.demo
 
-class Codelyber {
-    fun greet() = "Welcome to kotlin skeleton!!!"
-}
+import java.time.LocalDate
+import java.time.Period
 
-fun main(args: Array<String>) {
-    println(Codelyber().greet())
+fun main() {
+    println("Please, enter your birthday with the format <yyyy-MM-dd>:")
+    val input = readLine()
+    val birthday = LocalDate.parse(input)
+    val difference = Period.between(birthday, LocalDate.now())
+    println("Years from birthday: ${difference.years}")
 }
