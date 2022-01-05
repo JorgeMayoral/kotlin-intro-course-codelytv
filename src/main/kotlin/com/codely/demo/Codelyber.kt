@@ -25,7 +25,8 @@ fun main() {
 
 private fun LocalDate.calculateDifference() = with(Period.between(this, LocalDate.now())) {
     when {
-        years > 0 -> println("Years from birthday: $years")
+        years >= 18 -> println("You are older than 18 years, you have $years years.")
+        years > 0 -> println("You are younger than 18 years, you have $years years.")
         months > 0 -> println("Months from birthday: $months")
         days > 0 -> println("Days from birthday: $days")
     }
