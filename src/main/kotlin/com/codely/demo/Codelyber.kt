@@ -18,14 +18,15 @@ fun main() {
         }
     }?.also {
         println("Your birthday is $it")
-    }.run {
-        with(Period.between(this, LocalDate.now())) {
-            when {
-                years > 0 -> println("Years from birthday: $years")
-                months > 0 -> println("Months from birthday: $months")
-                days > 0 -> println("Days from birthday: $days")
-            }
-        }
+    }?.run {
+        calculateDifference()
     }
 }
 
+private fun LocalDate.calculateDifference() = with(Period.between(this, LocalDate.now())) {
+    when {
+        years > 0 -> println("Years from birthday: $years")
+        months > 0 -> println("Months from birthday: $months")
+        days > 0 -> println("Days from birthday: $days")
+    }
+}
